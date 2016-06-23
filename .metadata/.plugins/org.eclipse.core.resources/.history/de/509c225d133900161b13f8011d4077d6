@@ -1,0 +1,71 @@
+package _1_2使用多线程._3实例变量与线程安全;
+
+public class LoginServlet {
+
+	private static String usernameRef;
+	private static String passwordRef;
+
+	/**
+	 * username=b,password=bb
+	 * 
+	 * username=b,password=aa
+	 * 
+	 * @param username
+	 * @param password
+	 */
+	// public static void doPost(String username, String password) {
+	
+	/**
+	 * username=b,password=bb
+	 * 
+	 * username=b,password=aa
+	 * 
+	 * @param username
+	 * @param password
+	 */
+	synchronized public static void doPost(String username, String password) {
+		usernameRef = username;
+		if (username.equals("a")) {
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		passwordRef = password;
+		System.out.println("username=" + usernameRef + ",password="
+				+ passwordRef);
+
+	}
+
+	public class Alogin extends Thread {
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			super.run();
+			doPost("a", "aa");
+
+		}
+	}
+
+	public class Blogin extends Thread {
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			super.run();
+			doPost("b", "bb");
+
+		}
+	}
+
+	public static void main(String[] args) {
+
+		LoginServlet loginServlet = new LoginServlet();
+
+		Alogin alogin = loginServlet.new Alogin();
+		alogin.start();
+		Blogin blogin = loginServlet.new Blogin();
+		blogin.start();
+	}
+}

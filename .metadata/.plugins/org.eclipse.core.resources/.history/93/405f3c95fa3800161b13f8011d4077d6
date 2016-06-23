@@ -1,0 +1,52 @@
+package _1_2使用多线程._1继承Thread类;
+/**
+ * 
+ * Copyright? 2016 Authors. All rights reserved.
+ *
+ * FileName: 
+ * @author: Wu_Being<1040003585@qq.com>
+ * Date/Time: 2016-6-23/下午12:16:01
+ * Description: start()方法通知“线程规划器”，进入就绪状态
+ */
+public class Test2Random {
+
+	public static void main(String[] args) {
+		MyThread2 myThread2 = new MyThread2();
+		myThread2.setName("myThread2");
+		myThread2.start();
+		for (int i = 0; i < 10; i++) {
+			int time=(int)(Math.random()*1000);
+			try {
+				Thread.sleep(time);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("main="+Thread.currentThread().getName());
+			
+		}
+	}
+}
+/*
+run=myThread2
+main=main
+main=main
+run=myThread2
+main=main
+run=myThread2
+run=myThread2
+main=main
+main=main
+main=main
+run=myThread2
+run=myThread2
+main=main
+run=myThread2
+run=myThread2
+main=main
+run=myThread2
+main=main
+run=myThread2
+main=main
+
+*/

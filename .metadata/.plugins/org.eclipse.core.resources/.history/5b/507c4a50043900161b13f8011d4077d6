@@ -1,0 +1,5 @@
+package _1_2使用多线程._3实例变量与线程安全;
+
+public class Test2ShareData_Safe {
+
+}

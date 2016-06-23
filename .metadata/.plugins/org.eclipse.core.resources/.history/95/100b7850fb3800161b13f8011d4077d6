@@ -1,0 +1,13 @@
+package _1_2使用多线程._2实现Runnable接口;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		Runnable runnable=new MyRunnnable();/**/
+		Thread thread = new Thread(runnable);
+		thread.start();
+		System.out.println("main运行结束");
+		
+	}
+}

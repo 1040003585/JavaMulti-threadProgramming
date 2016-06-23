@@ -1,0 +1,22 @@
+package _1_2使用多线程._3实例变量与线程安全;
+
+public class MyThread1 extends Thread {
+
+	private int count = 5;
+
+	public MyThread1(String name) {
+		super();
+		this.setName(name);
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		super.run();
+		while (count > 0) {
+			count--;
+			System.out.println("由 " + MyThread1.currentThread().getName()
+					+ "计算，count=" + count);
+		}
+	}
+}

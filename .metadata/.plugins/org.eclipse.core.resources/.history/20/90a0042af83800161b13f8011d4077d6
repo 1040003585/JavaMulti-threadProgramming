@@ -1,0 +1,10 @@
+package _1_2使用多线程._1继承Thread类;
+
+public class Test1Random {
+
+	public static void main(String[] args) {
+		MyThread myThread = new MyThread();
+		myThread.start();
+		System.out.println("mainThread 运行结束！");
+	}
+}
